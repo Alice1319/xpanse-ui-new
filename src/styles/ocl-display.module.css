@@ -81,3 +81,22 @@
     max-height: 200px;
     overflow: auto;
 }
+
+.ocl-flavor-item {
+    margin-bottom: 10px;
+}
+
+.ocl-data-flavor-hover {
+    font-size: 14px;
+    font-weight: normal;
+    background: #bfbfbf;
+}
+
+.ocl-square-badge .ant-badge-count {
+    border-radius: 0 !important;
+    padding: 0 6px !important;
+    width: auto !important;
+    height: auto !important;
+    line-height: normal !important;
+    color: #52c41a !important;
+}

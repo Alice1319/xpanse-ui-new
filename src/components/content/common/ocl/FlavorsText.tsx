@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: Huawei Inc.
  */
 
-import { Button, Popover } from 'antd';
+import { Badge, Button, Popover } from 'antd';
 import React from 'react';
 import YAML from 'yaml';
 import oclDisplayStyles from '../../../../styles/ocl-display.module.css';
@@ -19,7 +19,7 @@ export function FlavorsText({ flavors }: { flavors: ServiceFlavor[] }): React.JS
             // @ts-expect-error
             yamlDocument.contents = flavor;
             return (
-                <li key={index}>
+                <li key={index} className={oclDisplayStyles.oclFlavorItem}>
                     <Popover
                         content={
                             <pre className={oclDisplayStyles.oclFlavorsItemContent}>{yamlDocument.toString()}</pre>
@@ -27,9 +27,16 @@ export function FlavorsText({ flavors }: { flavors: ServiceFlavor[] }): React.JS
                         title='Flavor Details'
                         trigger='hover'
                     >
-                        <Button className={oclDisplayStyles.oclDataHover} type='link'>
-                            {flavor.name}
-                        </Button>
+                        <Badge
+                            count={flavor.priority}
+                            showZero
+                            color={'#52c41a'}
+                            className={`${oclDisplayStyles.oclSquareBadge} ${oclDisplayStyles.antBadgeCount}`}
+                        >
+                            <Button type='primary' className={oclDisplayStyles.oclDataFlavorHover}>
+                                {flavor.name}
+                            </Button>
+                        </Badge>
                     </Popover>
                 </li>
             );
